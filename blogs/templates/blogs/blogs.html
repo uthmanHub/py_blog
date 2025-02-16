@@ -1,0 +1,17 @@
+{% extends "layout.html" %} 
+{% load static %}
+
+{% block body %}
+    <h1>Blogs to django</h1>
+{% for blog in blogs %}
+
+    <a href="{% url 'blogs:blogDetails' blog.pk %}">
+    <h2>{{ blog.title }}</h2>
+</a>
+    <p>{{ blog.content }}</p>
+    <p>{{ blog.description }}</p>
+    <img src="{{blog.image.url}}" alt="{{blog.title}}" style="width: 500px" >
+
+{% endfor %}
+
+{% endblock body %}
